@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Inicio de sesion
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <img src="../../assets/icon/coche.png" alt="">
+    <form action="" [formGroup]="formGroupInicioSesion">
+            <!-- Campo para el Correo -->
+            <ion-item>
+              <ion-label position="floating">Correo:</ion-label>
+              <ion-input formControlName="correoUsuarioLogin" type="email" aria-label="correoUsuarioLogin" [(ngModel)]="correoUsuarioLogin"></ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="formGroupInicioSesion.get('correoUsuarioLogin').invalid && formGroupInicioSesion.get('correoUsuarioLogin').touched">
+              <p *ngIf="formGroupInicioSesion.get('correoUsuarioLogin').errors['required']">Correo es requerido.</p>
+              <p *ngIf="formGroupInicioSesion.get('correoUsuarioLogin').errors['email']">Correo no es válido.</p>
+            </ion-text>
+
+
+            <ion-item>
+              <ion-label position="floating">Clave:</ion-label>
+              <ion-input type="password" formControlName="paseUsuarioLogin" [(ngModel)]="paseUsuarioLogin"></ion-input>
+            </ion-item>
+            <ion-text color="danger" *ngIf="formGroupInicioSesion.get('paseUsuarioLogin').invalid && formGroupInicioSesion.get('paseUsuarioLogin').touched">
+              <p *ngIf="formGroupInicioSesion.get('paseUsuarioLogin').errors['required']">Clave es requerida.</p>
+            </ion-text>
+
+
+            <ion-button type="submit"  style="margin-left: 10px; font-size: 9px;" color="primary" [disabled]="formGroupInicioSesion.invalid" (click)="iniciarSesion()">Entrar</ion-button>
+          </form>
+          <hr style="margin-top: 15px; margin-bottom: 15px;">
+          <a href="registro" style="color: blue; margin-top: 15px;">No tiene una cuenta? Creala</a>
+
+
+  </ion-card>
+</ion-content>
+
