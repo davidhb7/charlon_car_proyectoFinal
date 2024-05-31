@@ -1,26 +1,19 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { RegistroComponent } from './components/registro/registro.component';
-import { LoginComponent } from './components/login/login.component';
 import { ListaViajesComponent } from './components/lista-viajes/lista-viajes.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-
-
-
   //POR DEFECTO O VACIO
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'registro',
-    component: RegistroComponent
+    path: 'register',
+    component: RegisterComponent
   },
   {
     path:'login',
@@ -31,8 +24,13 @@ const routes: Routes = [
     component: ListaViajesComponent
   },
   {
-    path:'login',
-    component: LoginComponent
+    path:'menu',
+    component: MenuComponent
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
   },
 
 ];

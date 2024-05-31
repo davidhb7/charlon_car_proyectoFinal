@@ -5,7 +5,7 @@ export interface UsuarioI{
   correo:string,
   edad:string,
   celular:string,
-
+  clave:string,
   marcaVehiculo:string,
   modelo:string,
   placa:string,

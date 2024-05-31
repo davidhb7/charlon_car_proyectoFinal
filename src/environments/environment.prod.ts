@@ -6,5 +6,6 @@ export const environment = {
     "storageBucket":"proyectofinalcharloncar.appspot.com",
     "apiKey":"AIzaSyDlOeLxpKrojzRBEp14awZeuDsNcF-eHWE",
     "authDomain":"proyectofinalcharloncar.firebaseapp.com",
-    "messagingSenderId":"213185454040"}
+    "messagingSenderId":"213185454040"
+  }
 };

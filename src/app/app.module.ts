@@ -14,16 +14,12 @@ import { getFunctions, provideFunctions } from '@angular/fire/functions';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
-
-import { RegistroComponent } from './components/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +27,9 @@ import { LoginComponent } from './components/login/login.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+
+
   ],
 
   providers: [{
