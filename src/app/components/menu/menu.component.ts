@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone:true,
@@ -13,10 +15,27 @@ import { IonicModule } from '@ionic/angular';
 })
 export class MenuComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private serviciosAuth: FirebaseAuthService,
+    private router: Router,
+  ) {
+
+   }
 
   ngOnInit() {
     return;
   }
+
+  cerrarSesion(){
+    this.serviciosAuth.salida();
+    this.serviciosAuth.estadoLogUsuario();
+    this.router.navigate(['/login']);
+  }
+
+
+  redireccionar(direccion:string){
+    this.router.navigate([direccion]);
+  }
+
 
 }

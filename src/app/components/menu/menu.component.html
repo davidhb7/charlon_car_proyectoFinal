@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content class="ion-padding">
 
-    <ion-item>
+    <ion-item (click)="redireccionar('formulario-conductor')">
       Eres conductor? Publica tu viaje
     </ion-item>
 
@@ -14,7 +14,7 @@
       Perfil
     </ion-item>
 
-    <ion-item>Cerrar Sesion</ion-item>
+    <ion-item (click)="cerrarSesion()">Cerrar Sesion</ion-item>
 
   </ion-content>
 </ion-menu>
@@ -27,5 +27,9 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Charlando y Viajando</ion-content>
+  <ion-content class="ion-padding">
+
+    Charlando y Viajando
+
+  </ion-content>
 </div>

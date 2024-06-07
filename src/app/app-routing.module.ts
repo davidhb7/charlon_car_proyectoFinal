@@ -4,6 +4,7 @@ import { ListaViajesComponent } from './components/lista-viajes/lista-viajes.com
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { FormularioConductorComponent } from './pages/formulario-conductor/formulario-conductor.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'menu',
     component: MenuComponent
+  },
+  {
+    path:'formulario-conductor',
+    component: FormularioConductorComponent
   },
   {
     path: '',

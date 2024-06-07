@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { UsuarioI } from 'src/app/interfaces/usuario';
+import { UsuarioI } from 'src/app/interfaces/usuarioI';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 import { FirestoreDataService } from 'src/app/services/firestore-data.service';
 
@@ -56,7 +56,8 @@ export class RegisterComponent  implements OnInit {
       marcaVehiculo:'',
       modelo:'',
       placa:'',
-      ciudadRegistrado:''
+      ciudadRegistrado:'',
+      asientosDisponibles:1
     };
     this.formGroupRegistro = this.formBuilderRegistro.group({
       nombre: ['', [Validators.required]],
@@ -69,12 +70,15 @@ export class RegisterComponent  implements OnInit {
     this.cargando=true;
     const resp= await this.serviciosAuth.registrarUsuario(this.nuevoUsuario.correo, this.nuevoUsuario.clave);
     if(resp){
+      console.log("Registro realizado")
       this.nuevoUsuario.id=resp.user.uid;
       await this.servicioFireStore.crearDocumentoGeneralPorID(this.nuevoUsuario,'Usuarios', resp.user.uid.toString());
     }
     this.router.navigate(['/login']);
     this.cargando=false;
   }
+
+
 
 
 }

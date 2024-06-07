@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { UsuarioI } from 'src/app/interfaces/usuario';
+import { UsuarioI } from 'src/app/interfaces/usuarioI';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
@@ -64,7 +64,6 @@ export class LoginComponent  implements OnInit {
       if(resp){
         this.goToMenu();
         this.inicializarCamposLogin();
-        this.goToMenu();
       }
     }
   }

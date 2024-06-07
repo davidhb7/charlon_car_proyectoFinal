@@ -6,8 +6,11 @@ export interface UsuarioI{
   edad:string,
   celular:string,
   clave:string,
+
+  // COMO CONDUCTOR
   marcaVehiculo:string,
   modelo:string,
   placa:string,
-  ciudadRegistrado:string
+  ciudadRegistrado:string,
+  asientosDisponibles: number
 }

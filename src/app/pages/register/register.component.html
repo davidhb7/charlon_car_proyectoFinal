@@ -12,7 +12,6 @@
 <ion-content>
   <ion-card>
     <hr color="blue">
-
     <form [formGroup]="formGroupRegistro">
       <!-- Campo para el Nombre Completo -->
       <ion-item>
@@ -42,9 +41,6 @@
         <p *ngIf="formGroupRegistro.get('correo').errors['required']">Correo es requerido.</p>
         <p *ngIf="formGroupRegistro.get('correo').errors['email']">Correo no es válido.</p>
       </ion-text>
-
-
-
 
       <ion-button type="submit"  style="margin-left: 10px; font-size: 9px;" color="success" [disabled]="formGroupRegistro.invalid" (click)="guardarUsuarioRegistro()">Enviar</ion-button>
 
