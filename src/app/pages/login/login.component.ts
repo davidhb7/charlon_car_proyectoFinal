@@ -7,8 +7,8 @@ import { UsuarioI } from 'src/app/interfaces/usuarioI';
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 
 @Component({
-  standalone:true,
-  imports:[
+  standalone: true,
+  imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -18,17 +18,17 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent  implements OnInit {
+export class LoginComponent implements OnInit {
 
-    //OBJETOS Y CLASES
-    formLogin: FormGroup;
-    usuario:UsuarioI
+  //OBJETOS Y CLASES
+  formLogin: FormGroup;
+  usuario: UsuarioI
 
-    //VARIABVLES
-    correoUsuarioLogin:string="";
-    paseUsuarioLogin:string="";
-    alertarError: boolean=false;
-    cargando:boolean;
+  //VARIABVLES
+  correoUsuarioLogin: string = "";
+  paseUsuarioLogin: string = "";
+  alertarError: boolean = false;
+  cargando: boolean;
 
   constructor(
     private formBuilderLogin: FormBuilder,
@@ -42,26 +42,26 @@ export class LoginComponent  implements OnInit {
     return;
   }
   //INICIALIZAR CAMPOS
-  inicializarCamposLogin(){
+  inicializarCamposLogin() {
     this.formLogin = this.formBuilderLogin.group({
       correoUsuarioLogin: ['', [Validators.required, Validators.email]],
-      paseUsuarioLogin:['', Validators.required]
+      paseUsuarioLogin: ['', Validators.required]
     });
   }
-  async iniciarSesion(){
-    this.cargando=true;
-    if(this.formLogin.valid){
-      const resp= await this.serviciosAuth.iniciarSesion(this.correoUsuarioLogin, this.paseUsuarioLogin)
-      .catch((er)=>{
-        const errorCode = er.code;
-        const errorMessage = er.message;
-        console.log("Error auth");
-        console.log("Error code"+errorCode);
-        console.log("Error mensaje"+errorMessage);
-        this.correoUsuarioLogin=""
-        this.paseUsuarioLogin=""
-      });
-      if(resp){
+  async iniciarSesion() {
+    this.cargando = true;
+    if (this.formLogin.valid) {
+      const resp = await this.serviciosAuth.iniciarSesion(this.correoUsuarioLogin, this.paseUsuarioLogin)
+        .catch((er) => {
+          const errorCode = er.code;
+          const errorMessage = er.message;
+          console.log("Error auth");
+          console.log("Error code" + errorCode);
+          console.log("Error mensaje" + errorMessage);
+          this.correoUsuarioLogin = ""
+          this.paseUsuarioLogin = ""
+        });
+      if (resp) {
         this.goToMenu();
         this.inicializarCamposLogin();
       }
@@ -69,8 +69,8 @@ export class LoginComponent  implements OnInit {
   }
 
   //REDIRECCION A MENU
-  goToMenu(){
-    this.router.navigate(['/menu']);
+  goToMenu() {
+    this.router.navigate(['/inicio']);
     console.log("Autenticado")
   }
 

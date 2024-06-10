@@ -5,37 +5,45 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  standalone:true,
-  imports:[
+  standalone: true,
+  imports: [
     CommonModule,
     IonicModule,],
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent  implements OnInit {
+export class MenuComponent implements OnInit {
 
   constructor(
     private serviciosAuth: FirebaseAuthService,
     private router: Router,
   ) {
 
-   }
+    this.usuarioLog();
+
+  }
 
   ngOnInit() {
+
     return;
   }
 
-  cerrarSesion(){
+  cerrarSesion() {
     this.serviciosAuth.salida();
     this.serviciosAuth.estadoLogUsuario();
     this.router.navigate(['/login']);
   }
 
 
-  redireccionar(direccion:string){
+  redireccionar(direccion: string) {
     this.router.navigate([direccion]);
   }
 
+  usuarioLog() {
+
+    console.log(this.serviciosAuth.verificarSesionActiva());
+
+  }
 
 }

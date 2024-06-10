@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth'
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class FirebaseAuthService {
     return await this.angularFireAuth.createUserWithEmailAndPassword(correo,contrapase)
     .catch(error=>{
       console.log("Error de registro"+ error);
+      return null;
     });
   }
 
@@ -41,6 +43,14 @@ export class FirebaseAuthService {
     return this.angularFireAuth.authState;
   }
 
+  verificarSesionActiva(): Observable<boolean> {
+    return this.angularFireAuth.authState.pipe(
+      map(user => !!user) // Convierte el objeto de usuario en un booleano indicando si hay un usuario autenticado o no
+    );
+  }
 
+  obtenerUsuarioActual(): Observable<any> {
+    return this.angularFireAuth.authState;
+  }
 
 }

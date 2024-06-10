@@ -5,12 +5,12 @@ export interface UsuarioI{
   correo:string,
   edad:string,
   celular:string,
-  clave:string,
+  tipo:string,
 
   // COMO CONDUCTOR
   marcaVehiculo:string,
   modelo:string,
   placa:string,
   ciudadRegistrado:string,
-  asientosDisponibles: number
+  color:string
 }

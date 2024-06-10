@@ -16,41 +16,137 @@
       <!-- Campo para el Nombre Completo -->
       <ion-item>
         <ion-label position="floating">Nombre Completo:</ion-label>
-        <ion-input formControlName="nombre" type="text" aria-label="nombre" [(ngModel)]="nuevoUsuario.nombre"></ion-input>
+        <ion-input formControlName="nombre" type="text" aria-label="nombre"></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="formGroupRegistro.get('nombre').invalid && formGroupRegistro.get('nombre').touched">
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('nombre').invalid && formGroupRegistro.get('nombre').touched">
         <p *ngIf="formGroupRegistro.get('nombre').errors['required']">Nombre Completo es requerido.</p>
       </ion-text>
 
-      <!-- Campo para la cedula -->
+      <!-- Campo para la Cedula -->
       <ion-item>
-        <ion-label position="floating">Clave:</ion-label>
-        <ion-input formControlName="clave" type="tel" aria-label="clave" [(ngModel)]="nuevoUsuario.clave"></ion-input>
+        <ion-label position="floating">Cédula:</ion-label>
+        <ion-input formControlName="cedula" type="text" aria-label="cedula"></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="formGroupRegistro.get('clave').invalid && formGroupRegistro.get('clave').touched">
-        <p *ngIf="formGroupRegistro.get('clave').errors['required']">Cedula es requerida.</p>
-        <p *ngIf="formGroupRegistro.get('clave').errors['pattern']">Por favor, ingrese solo números.</p>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('cedula').invalid && formGroupRegistro.get('cedula').touched">
+        <p *ngIf="formGroupRegistro.get('cedula').errors['required']">Cédula es requerida.</p>
       </ion-text>
 
       <!-- Campo para el Correo -->
       <ion-item>
         <ion-label position="floating">Correo:</ion-label>
-        <ion-input formControlName="correo" type="email" aria-label="correo" [(ngModel)]="nuevoUsuario.correo"></ion-input>
+        <ion-input formControlName="correo" type="email" aria-label="correo"></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="formGroupRegistro.get('correo').invalid && formGroupRegistro.get('correo').touched">
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('correo').invalid && formGroupRegistro.get('correo').touched">
         <p *ngIf="formGroupRegistro.get('correo').errors['required']">Correo es requerido.</p>
         <p *ngIf="formGroupRegistro.get('correo').errors['email']">Correo no es válido.</p>
       </ion-text>
 
-      <ion-button type="submit"  style="margin-left: 10px; font-size: 9px;" color="success" [disabled]="formGroupRegistro.invalid" (click)="guardarUsuarioRegistro()">Enviar</ion-button>
+      <!-- Campo para la Contraseña -->
+      <ion-item>
+        <ion-label position="floating">Contraseña:</ion-label>
+        <ion-input formControlName="contraseña" type="password" aria-label="contraseña"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('contraseña').invalid && formGroupRegistro.get('contraseña').touched">
+        <p *ngIf="formGroupRegistro.get('contraseña').errors['required']">Contraseña es requerida.</p>
+      </ion-text>
 
+      <!-- Campo para la Edad -->
+      <ion-item>
+        <ion-label position="floating">Edad:</ion-label>
+        <ion-input formControlName="edad" type="number" aria-label="edad"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistro.get('edad').invalid && formGroupRegistro.get('edad').touched">
+        <p *ngIf="formGroupRegistro.get('edad').errors['required']">Edad es requerida.</p>
+      </ion-text>
 
+      <!-- Campo para el Celular -->
+      <ion-item>
+        <ion-label position="floating">Celular:</ion-label>
+        <ion-input formControlName="celular" type="text" aria-label="celular"></ion-input>
+      </ion-item>
+      <ion-text color="danger"
+        *ngIf="formGroupRegistro.get('celular').invalid && formGroupRegistro.get('celular').touched">
+        <p *ngIf="formGroupRegistro.get('celular').errors['required']">Celular es requerido.</p>
+      </ion-text>
+
+      <!-- Campo para el Tipo (Pasajero/Conductor) -->
+      <ion-item>
+        <ion-label>Tipo:</ion-label>
+        <ion-radio-group formControlName="tipo">
+          <ion-item>
+            <ion-label>Pasajero</ion-label>
+            <ion-radio slot="start" value="pasajero"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Conductor</ion-label>
+            <ion-radio slot="start" value="conductor"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistro.get('tipo').invalid && formGroupRegistro.get('tipo').touched">
+        <p *ngIf="formGroupRegistro.get('tipo').errors['required']">Tipo es requerido.</p>
+      </ion-text>
+
+      <!-- Campos adicionales para el Conductor -->
+      <div *ngIf="formGroupRegistro.get('tipo').value === 'conductor'">
+        <ion-item>
+          <ion-label position="floating">Marca del Vehículo:</ion-label>
+          <ion-input formControlName="marcaVehiculo" type="text" aria-label="marcaVehiculo"></ion-input>
+        </ion-item>
+        <ion-text color="danger"
+          *ngIf="formGroupRegistro.get('marcaVehiculo').invalid && formGroupRegistro.get('marcaVehiculo').touched">
+          <p *ngIf="formGroupRegistro.get('marcaVehiculo').errors['required']">Marca del Vehículo es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Modelo:</ion-label>
+          <ion-input formControlName="modelo" type="text" aria-label="modelo"></ion-input>
+        </ion-item>
+        <ion-text color="danger"
+          *ngIf="formGroupRegistro.get('modelo').invalid && formGroupRegistro.get('modelo').touched">
+          <p *ngIf="formGroupRegistro.get('modelo').errors['required']">Modelo es requerido.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Placa:</ion-label>
+          <ion-input formControlName="placa" type="text" aria-label="placa"></ion-input>
+        </ion-item>
+        <ion-text color="danger"
+          *ngIf="formGroupRegistro.get('placa').invalid && formGroupRegistro.get('placa').touched">
+          <p *ngIf="formGroupRegistro.get('placa').errors['required']">Placa es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Ciudad Registrado:</ion-label>
+          <ion-input formControlName="ciudadRegistrado" type="text" aria-label="ciudadRegistrado"></ion-input>
+        </ion-item>
+        <ion-text color="danger"
+          *ngIf="formGroupRegistro.get('ciudadRegistrado').invalid && formGroupRegistro.get('ciudadRegistrado').touched">
+          <p *ngIf="formGroupRegistro.get('ciudadRegistrado').errors['required']">Ciudad Registrado es requerida.</p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="floating">Color:</ion-label>
+          <ion-input formControlName="color" type="text" aria-label="color"></ion-input>
+        </ion-item>
+        <ion-text color="danger"
+          *ngIf="formGroupRegistro.get('color').invalid && formGroupRegistro.get('color').touched">
+          <p *ngIf="formGroupRegistro.get('color').errors['required']">Color es requerido.</p>
+        </ion-text>
+      </div>
+
+      <ion-button type="submit" style="margin-left: 10px; font-size: 9px;" color="success"
+        [disabled]="formGroupRegistro.invalid" (click)="guardarUsuarioRegistro()">Enviar</ion-button>
     </form>
 
     @if (cargando) {
-      <div style="text-align:center;">
-        <ion-spinner name="bubbles"></ion-spinner>
-      </div>
+    <div style="text-align:center;">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>
     }
 
   </ion-card>

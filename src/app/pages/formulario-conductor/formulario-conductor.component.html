@@ -49,11 +49,11 @@
 
       <ion-item>
         <ion-label position="floating">Asientos disponibles:</ion-label>
-        <ion-input formControlName="asientosDisponibles" type="tel" aria-label="asientosDisponibles" [(ngModel)]="nuevoConductor.asientosDisponibles"></ion-input>
+        <ion-input formControlName="color" type="tel" aria-label="color" [(ngModel)]="nuevoConductor.color"></ion-input>
       </ion-item>
-      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('asientosDisponibles').invalid && formGroupRegistroConductor.get('asientosDisponibles').touched">
-        <p *ngIf="formGroupRegistroConductor.get('asientosDisponibles').errors['required']">Numero de asientos es requerido.</p>
-        <p *ngIf="formGroupRegistroConductor.get('asientosDisponibles').errors['pattern']">Por favor, ingrese solo números.</p>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('color').invalid && formGroupRegistroConductor.get('color').touched">
+        <p *ngIf="formGroupRegistroConductor.get('color').errors['required']">Numero de asientos es requerido.</p>
+        <p *ngIf="formGroupRegistroConductor.get('color').errors['pattern']">Por favor, ingrese solo números.</p>
       </ion-text>
 
 

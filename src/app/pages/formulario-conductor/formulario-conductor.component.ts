@@ -5,8 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { UsuarioI } from 'src/app/interfaces/usuarioI';
 
 @Component({
-  standalone:true,
-  imports:[
+  standalone: true,
+  imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -16,14 +16,14 @@ import { UsuarioI } from 'src/app/interfaces/usuarioI';
   templateUrl: './formulario-conductor.component.html',
   styleUrls: ['./formulario-conductor.component.scss'],
 })
-export class FormularioConductorComponent  implements OnInit {
+export class FormularioConductorComponent implements OnInit {
 
-    //OBJETOS-CLASES
-    formGroupRegistroConductor: FormGroup;
-    nuevoConductor:UsuarioI;
+  //OBJETOS-CLASES
+  formGroupRegistroConductor: FormGroup;
+  nuevoConductor: UsuarioI;
 
-    //----------------VARIABLES
-    cargando:boolean=false;
+  //----------------VARIABLES
+  cargando: boolean = false;
 
   constructor(
     private formBuilderRegistroConductor: FormBuilder,
@@ -35,28 +35,28 @@ export class FormularioConductorComponent  implements OnInit {
     return;
   }
 
-  inicializarCamposConductor(){
+  inicializarCamposConductor() {
     this.nuevoConductor = {
-      id:'',
-      cedula:'',
-      nombre:'',
-      correo:'',
-      edad:'',
-      celular:'',
-      clave:'',
+      id: '',
+      cedula: '',
+      nombre: '',
+      correo: '',
+      edad: '',
+      celular: '',
+      tipo: '',
 
       // COMO CONDUCTOR
-      marcaVehiculo:'',
-      modelo:'',
-      placa:'',
-      ciudadRegistrado:'',
-      asientosDisponibles: 0
+      marcaVehiculo: '',
+      modelo: '',
+      placa: '',
+      ciudadRegistrado: '',
+      color: ''
     };
     this.formGroupRegistroConductor = this.formBuilderRegistroConductor.group({
-      marcaVehiculo:['', Validators.required],
+      marcaVehiculo: ['', Validators.required],
       modelo: ['', Validators.required],
       placa: ['', Validators.required],
-      ciudadRegistrado: ['',[ Validators.required]],
+      ciudadRegistrado: ['', [Validators.required]],
       asientosDisponibles: ['', [Validators.required, Validators.pattern('[0-9]*')]],
 
     });
@@ -64,9 +64,8 @@ export class FormularioConductorComponent  implements OnInit {
 
   }
 
-  guardarUsuarioConductorRegistro(){
+  guardarUsuarioConductorRegistro() {
 
   }
-
 
 }

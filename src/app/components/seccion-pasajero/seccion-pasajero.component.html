@@ -1,0 +1,70 @@
+<p>
+
+  <ion-item>
+
+    <div *ngIf="tipo == 'buscar'">
+
+      <div *ngIf="viajes.length > 0">
+        <div *ngFor="let viaje of viajes">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ viaje.puntoPartida }} - {{ viaje.destino }}</ion-card-title>
+              <ion-card-subtitle>{{ viaje.fechaInicio | date }} a las {{ viaje.horaInicio }}</ion-card-subtitle>
+              <ion-card-subtitle>${{ viaje.precio }}</ion-card-subtitle>
+              <ion-card-subtitle>{{ viaje.conductor }}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              {{ viaje.sillasDisponibles }} Puestos disponibles
+            </ion-card-content>
+            <ion-button [href]="generarLinkGoogleMaps(viaje.waypoints)" fill="clear">Ver ruta</ion-button>
+            <ion-button fill="clear" (click)="solicitarPuesto(viaje.id)">Solicitar puesto</ion-button>
+          </ion-card>
+        </div>
+      </div>
+
+      <div *ngIf="viajes.length === 0">
+        No hay viajes disponibles.
+      </div>
+
+    </div>
+
+    <div *ngIf="tipo == 'misViajes'">
+
+      <div *ngIf="viajes2.length > 0">
+
+        <div *ngFor="let viaje of viajes2">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{ viaje.puntoPartida }} - {{ viaje.destino }}</ion-card-title>
+              <ion-card-subtitle>{{ viaje.fechaInicio | date }} a las {{ viaje.horaInicio }}</ion-card-subtitle>
+              <ion-card-subtitle>${{ viaje.precio }}</ion-card-subtitle>
+              <ion-card-subtitle>{{ viaje.conductor }}</ion-card-subtitle>
+            </ion-card-header>
+
+            <ion-card-content>
+              Marca: {{ viaje.marcaCarro }} <br>
+              Placa: {{ viaje.placaCarro }} <br>
+              Color: {{ viaje.colorCarro }}
+            </ion-card-content>
+
+            <ion-button *ngIf="viaje.pagoPendiente" (click)="pagarViaje(viaje.id)" fill="clear">Pagar
+              viaje</ion-button>
+            <ion-button [href]="generarLinkGoogleMaps(viaje.waypoints)" fill="clear">Ver ruta</ion-button>
+          </ion-card>
+        </div>
+      </div>
+
+    </div>
+
+    @if (cargando) {
+    <div style="text-align:center;">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>}
+
+
+  </ion-item>
+
+
+
+</p>
