@@ -1,10 +1,9 @@
 #container {
   text-align: center;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
 
 #container strong {
@@ -15,9 +14,7 @@
 #container p {
   font-size: 16px;
   line-height: 22px;
-
   color: #8c8c8c;
-
   margin: 0;
 }
 
@@ -25,10 +22,19 @@
   text-decoration: none;
 }
 
-img{
-  margin-left: 60px;
-  margin-top: 30px;
+img {
+  display: block;
+  margin: 0 auto 30px auto; /* Ajustado para centrar la imagen */
 }
-a{
+
+a {
   text-decoration: none;
+  display: block; /* Esto asegura que el enlace ocupe toda la anchura del contenedor */
+}
+
+.centered-text {
+  text-align: center; /* Centra el texto horizontalmente dentro del ion-item */
+  display: flex; /* Usamos flexbox para centrar verticalmente */
+  align-items: center; /* Centramos verticalmente el contenido */
+  justify-content: center; /* Centramos horizontalmente el contenido */
 }

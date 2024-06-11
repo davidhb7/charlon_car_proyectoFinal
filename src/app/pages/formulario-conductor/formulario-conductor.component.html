@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/menu"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Formulario como conductor
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <h3 style="margin: 10px;">INGREA INFORMACION DE TU VEHICULO</h3>
+    <hr color="blue">
+    <form [formGroup]="formGroupRegistroConductor">
+
+      <ion-item>
+        <ion-label position="floating">Marca del vehiculo:</ion-label>
+        <ion-input formControlName="marcaVehiculo" type="text" aria-label="marcaVehiculo" [(ngModel)]="nuevoConductor.marcaVehiculo"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('marcaVehiculo').invalid && formGroupRegistroConductor.get('marcaVehiculo').touched">
+        <p *ngIf="formGroupRegistroConductor.get('marcaVehiculo').errors['required']">La marca es requerida.</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Modelo del vehiculo:</ion-label>
+        <ion-input formControlName="modelo" type="text" aria-label="modelo" [(ngModel)]="nuevoConductor.modelo"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('modelo').invalid && formGroupRegistroConductor.get('modelo').touched">
+        <p *ngIf="formGroupRegistroConductor.get('modelo').errors['required']">El modelo es requerido.</p>
+      </ion-text>
+
+
+      <ion-item>
+        <ion-label position="floating">Placa del vehiculo:</ion-label>
+        <ion-input formControlName="placa" type="text" aria-label="placa" [(ngModel)]="nuevoConductor.placa"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('placa').invalid && formGroupRegistroConductor.get('placa').touched">
+        <p *ngIf="formGroupRegistroConductor.get('placa').errors['required']">La placa es requerida.</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Ciudad del vehiculo:</ion-label>
+        <ion-input formControlName="ciudadRegistrado" type="text" aria-label="ciudadRegistrado" [(ngModel)]="nuevoConductor.ciudadRegistrado"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('ciudadRegistrado').invalid && formGroupRegistroConductor.get('ciudadRegistrado').touched">
+        <p *ngIf="formGroupRegistroConductor.get('ciudadRegistrado').errors['required']">La placa es requerida.</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Asientos disponibles:</ion-label>
+        <ion-input formControlName="color" type="tel" aria-label="color" [(ngModel)]="nuevoConductor.color"></ion-input>
+      </ion-item>
+      <ion-text color="danger" *ngIf="formGroupRegistroConductor.get('color').invalid && formGroupRegistroConductor.get('color').touched">
+        <p *ngIf="formGroupRegistroConductor.get('color').errors['required']">Numero de asientos es requerido.</p>
+        <p *ngIf="formGroupRegistroConductor.get('color').errors['pattern']">Por favor, ingrese solo números.</p>
+      </ion-text>
+
+
+
+
+
+
+
+
+      <ion-button type="submit"  style="margin-left: 10px; font-size: 9px;" color="success" [disabled]="formGroupRegistroConductor.invalid" (click)="guardarUsuarioConductorRegistro()">Enviar</ion-button>
+
+
+    </form>
+
+    @if (cargando) {
+      <div style="text-align:center;">
+        <ion-spinner name="bubbles"></ion-spinner>
+      </div>
+    }
+
+  </ion-card>
+</ion-content>
