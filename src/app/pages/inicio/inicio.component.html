@@ -1,0 +1,47 @@
+<p>
+
+  
+
+  <ion-item>
+
+    <div *ngIf="esConductor == true">
+
+      <ion-segment (ionChange)="cambioSegmento($event)" value="default">
+        <ion-segment-button value="default">
+          <ion-label>Mis viajes</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="segment">
+          <ion-label>Crear viaje</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <app-seccion-conductor [tipo]="tipo"></app-seccion-conductor>
+
+    </div>
+
+    <div *ngIf="esConductor == false">
+
+      <ion-segment (ionChange)="cambioSegmento2($event)" value="default">
+        <ion-segment-button value="default">
+          <ion-label>Viajes disponibles</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="segment">
+          <ion-label>Mis viajes</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <app-seccion-pasajero [tipo]="tipo"></app-seccion-pasajero>
+      <!--<app-seccion-conductor [tipo]="tipo"></app-seccion-conductor>-->
+
+    </div>
+
+  </ion-item>
+
+  @if (cargando) {
+<div style="text-align:center;">
+  <ion-spinner name="bubbles"></ion-spinner>
+</div>
+}
+<ion-button (click)="cerrarSesion()">Cerrar Sesion</ion-button>
+
+</p>

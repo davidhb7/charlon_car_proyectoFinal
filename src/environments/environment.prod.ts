@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebase:{
-    "projectId":"proyectofinalcharloncar",
-    "appId":"1:213185454040:web:62da9da4601f0c448ddcad",
-    "storageBucket":"proyectofinalcharloncar.appspot.com",
-    "apiKey":"AIzaSyDlOeLxpKrojzRBEp14awZeuDsNcF-eHWE",
-    "authDomain":"proyectofinalcharloncar.firebaseapp.com",
-    "messagingSenderId":"213185454040"
+    "projectId":"charloncar",
+    "appId":"1:955997092526:web:98376ce4556135d49c4b3f",
+    "storageBucket":"charloncar.appspot.com",
+    "apiKey":"AIzaSyB3XgPknad8IZaAKiC1ryg9ezOAqh3KT4A",
+    "authDomain":"charloncar.firebaseapp.com",
+    "messagingSenderId":"955997092526"
   }
 };

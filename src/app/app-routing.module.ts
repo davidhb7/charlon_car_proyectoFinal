@@ -4,6 +4,9 @@ import { ListaViajesComponent } from './components/lista-viajes/lista-viajes.com
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { FormularioConductorComponent } from './pages/formulario-conductor/formulario-conductor.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { MapaViajeComponent } from './components/mapa-viaje/mapa-viaje.component';
 
 const routes: Routes = [
   {
@@ -14,6 +17,12 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+
+    path: 'inicio',
+    component: InicioComponent
+
   },
   {
     path:'login',
@@ -28,9 +37,17 @@ const routes: Routes = [
     component: MenuComponent
   },
   {
+    path:'formulario-conductor',
+    component: FormularioConductorComponent
+  },
+  {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'mapa-viaje', // Ruta donde deseas utilizar el componente
+    component: MapaViajeComponent // Componente que deseas utilizar en esta ruta
   },
 
 ];
@@ -39,6 +56,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
+  
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

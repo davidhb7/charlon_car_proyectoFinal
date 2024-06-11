@@ -1,0 +1,43 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Opcional, para asegurar que ocupe todo el espacio vertical */
+  }
+  .register-link-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px; /* Puedes ajustar este margen según tus necesidades */
+  }  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px; /* Puedes ajustar este margen según tus necesidades */
+  }
+  .center-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; /* Opcional, para asegurar que ocupe todo el espacio vertical */
+  }
+  .image-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container {
+    margin-bottom: 20px; /* Ajusta según sea necesario */
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  

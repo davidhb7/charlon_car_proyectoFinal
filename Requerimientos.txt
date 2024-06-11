@@ -1,0 +1,47 @@
+CLASE APLICACIONES MOVILES 8-MAYO-2024
+
+Sitio en España: Blablacar.es (referencia de proyecto).
+
+ROLES:
+	-PASAJERO
+	-CONDUCTOR
+	-ADMIN
+
+
+QUE HACE?:
+	* N conductores OFRECE servicio de viajes predefinidos(fecha, hora, lugar's, costo por puesto y numero de puestos disponibles).
+
+	*Punto A, Punto B, (solo ida- ida y vuelta) Fecha de recogida (seleccionable para ambos puntos cuando sea ida y
+		vuelta).
+
+	*Puntos predefinidos de recogida. (No personalizables por el usuario).
+
+	*Muestra el costo
+
+	*LOGIN Y REGISTRO
+
+
+	*Como pasajero: registro basico
+	*Como pasajero: Poder seleccionar un servicio de varios ofertados.
+	*Como pasajero: Enviar solicitud al conductor
+	*Como pasajero: Pagar viaje
+
+	*Como conductor: registrarse como persona y registrar vehiculo
+	*Como conductor: Poder ofertar mi servicio
+	*Como conductor: Confirmar/rechazar solicitud
+	*Como conductor: Validar estado del pago
+	*Como conductor: Poder enviar QR despues de que el pasajero pague
+	*Como conductor: Poder validar el QR del pasajero(que lo identifica) y el estado del pago
+
+
+ALCANCE:
+	UNOS: Modulo del conductor
+	OTRSO: Modulos del pasajero
+	MOdulos: QR, Geolocalizacion y Geoposicionamiento (CUALQUIERA)
+
+
+
+* 3 NOTAS
+	1: 20 MAYO (prototipo base del diseño y funcionamiento)
+	2: 3 JUNIO
+	3: 10 JUNIO - Presentacion
